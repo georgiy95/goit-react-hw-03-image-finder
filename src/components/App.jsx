@@ -19,7 +19,6 @@ export class App extends Component {
     empty: false, 
   };
 
-
   componentDidUpdate(_, PrevState) {
 
     if (

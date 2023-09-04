@@ -2,8 +2,6 @@ import { Component } from "react";
 import { toast } from "react-hot-toast"; 
 import { BiSearch } from 'react-icons/bi'; 
 import css from './Searchbar.module.css' 
-
-
 export class Searchbar extends Component {
   state = {
     search: '',
@@ -25,8 +23,6 @@ export class Searchbar extends Component {
                     if (!this.state.search) {
                       return toast.error('Enter text for search.'); 
                     }
-
-            
             this.props.handleSubmit(this.state.search);
             this.resetForm();
           }}
