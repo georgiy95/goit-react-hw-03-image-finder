@@ -20,7 +20,7 @@ export class Modal extends Component {
   }
   handleClose = (evt) => {
     if (evt.currentTarget === evt.target) {
-      this.props.closeModal(); // закриття модалки
+      this.props.closeModal(); 
     }
   }
 
