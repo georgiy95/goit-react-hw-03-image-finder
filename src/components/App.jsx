@@ -12,18 +12,18 @@ export class App extends Component {
     search: '',
     images: [],
     page: 1,
-    total: 1,
+    total: 0,
     loading: false, 
     error: null,
     showModal: false,
     empty: false, 
   };
 
-  componentDidUpdate(_, PrevState) {
+  componentDidUpdate(_, prevState) {
 
     if (
-      PrevState.search !== this.state.search ||
-      PrevState.page !== this.state.page
+      prevState.search !== this.state.search ||
+      prevState.page !== this.state.page
     ) {
       this.getFunc(this.state.search, this.state.page);
     }
@@ -32,7 +32,6 @@ export class App extends Component {
   getFunc = (text, page) => {
     this.setState({ loading: true }); 
     getSearch(text, page)
-      .then(resp => resp.json()) 
       .then(data => {
 
         if (data.hits.length === 0) {
@@ -43,7 +42,7 @@ export class App extends Component {
           images: [...prevSt.images, ...data.hits], 
           total: data.total,
         }));
-      })
+        })
       .catch(error => {
         this.setState({ error: error.message }); 
       })
